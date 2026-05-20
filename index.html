@@ -1,0 +1,2511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="ROSE GARDEN - Floristería artesanal con arreglos florales únicos, entrega a domicilio, flores frescas cortadas cada mañana.">
+  <meta name="theme-color" content="#3d5a45">
+  <title>ROSE GARDEN - Flores que Enamoran</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Jost:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ================================================
+       VARIABLES
+    ================================================ */
+    :root {
+      --rosa: #f2c4ce;
+      --rosa-osc: #d60047;
+      --verde: #1d4428;
+      --verde-cl: #e8f0e9;
+      --crema: #fce9f6;
+      --crema-osc: #f0e8db;
+      --tierra: #8b6f5e;
+      --negro: #1c1c1c;
+      --gris: #797878;
+      --borde: #e8ddd4;
+      --titulo: 'Cormorant Garamond', serif;
+      --cuerpo: 'Jost', sans-serif color: var(--verde-cl);
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url(IMG/28d7d23e74d8113bc0f9632241e94e80.png);
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: var(--negro);
+      font-family: var(--cuerpo);
+      font-weight: 500;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      text-decoration: none; color: inherit;}
+
+    ul { list-style: none;}
+
+    /* ================================================
+       ANIMACIONES
+    ================================================ */
+    @keyframes subirFade {
+      from { opacity: 0; transform: translateY(24px);
+      }
+      to { opacity: 1; transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes flotar {
+
+      0%, 100% {
+        transform: translateY(0) rotate(-2deg);
+      }
+
+      50% {
+        transform: translateY(-14px) rotate(2deg);
+      }
+    }
+
+    @keyframes girar-lento {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes ticker {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+
+
+    .a1 {
+      animation: subirFade 0.9s ease 0.10s both;
+    }
+
+    .a2 {
+      animation: subirFade 0.9s ease 0.25s both;
+    }
+
+    .a3 {
+      animation: subirFade 0.9s ease 0.40s both;
+    }
+
+    .a4 {
+      animation: subirFade 0.9s ease 0.55s both;
+    }
+
+    /* ================================================
+       ANUNCIO SUPERIOR
+    ================================================ */
+    .anuncio {
+      background: var(--verde);
+      color: #fff;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+
+    .anuncio span {
+      color: var(--rosa);
+      margin: 0 10px;
+    }
+
+    /* ================================================
+       NAV
+    ================================================ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 247, 242, 0.97);
+      /* Fallback for browsers without backdrop-filter */
+      /* Provide a solid background as fallback for browsers without backdrop-filter */
+      /* Reduce blur for better performance */
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--borde);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 70px;
+      animation: fadeIn 0.6s ease both;
+    }
+
+    .nav-logo {
+      font: 700 2rem var(--titulo);
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-logo em {
+      font-style: italic;
+      color: var(--verde);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font: 500 12px var(--cuerpo);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gris);
+      transition: color 0.25s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 1.5px;
+      background: var(--verde);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--negro);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-iconos {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .nav-iconos button {
+      background: none;
+      border: 0;
+      cursor: pointer;
+      font-size: 20px;
+      position: relative;
+      transition: transform 0.2s;
+      padding: 8px;
+      min-height: 44px;
+      min-width: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-iconos button:hover {
+      transform: scale(1.15);
+    }
+
+    .carrito-badge {
+      position: absolute;
+      top: -4px; right: -6px;
+      background: var(--verde);
+      color: #fff;
+      font: 600 9px var(--cuerpo);
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero {
+      display: grid;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 92vh;
+      overflow: hidden;
+      padding: 80px 60px 80px 70px;
+      text-align: center;
+    }
+
+    .hero-izq {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+      position: relative;
+      max-width: 700px;
+    }
+
+    /* Elemento decorativo de fondo */
+    .hero-izq::before {
+
+      position: relative;
+      bottom: 60px;
+      left: 40px;
+      font-size: 140px;
+      color: var(--crema-osc);
+      pointer-events: auto;
+      line-height: 1;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border-radius: 50px;
+      padding: 8px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 0 auto 30px;
+      width: fit-content;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .hero h1 {
+      font-family: var(--titulo);
+      font-size: clamp(3.2rem, 5.5vw, 5.8rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -1px;
+      margin-bottom: 26px;
+      color: #fff;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--rosa-osc);
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 600px;
+      margin-bottom: 38px;
+    }
+
+    .hero-botones {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 30px;
+      border-radius: 50px;
+      font: 600 14px var(--cuerpo);
+      cursor: pointer;
+      border: 0;
+      transition: transform 0.2s, box-shadow 0.25s, background 0.25s;
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-verde {
+      background: var(--verde);
+      color: #fff;
+      box-shadow: 0 6px 24px rgba(61, 90, 69, 0.25);
+    }
+
+    .btn-verde:hover {
+      background: #2d4434;
+      box-shadow: 0 10px 32px rgba(61, 90, 69, 0.38);
+    }
+
+    .btn-borde {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid #fff;
+    }
+
+    .btn-borde:hover {
+      border-color: var(--rosa-osc);
+      color: var(--rosa-osc);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Stats pequeñas */
+    .hero-stats {
+      display: flex;
+      gap: 36px;
+      margin-top: 48px;
+      padding-top: 30px;
+      border-top: 1px solid var(--borde);
+    }
+
+    .stat-num {
+      font: 700 2.4rem var(--titulo);
+      color: var(--verde);
+      line-height: 1;
+    }
+
+    .stat-txt {
+      font-size: 11px;
+      color: var(--gris);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* Lado derecho hero */
+    .hero-der {
+      background: transparent;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: 500px;
+      height: 400px;
+      margin-top: 40px;
+    }
+
+    /* Textura de círculos decorativos */
+    .hero-der::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(212, 132, 154, 0.25);
+      animation: girar-lento 40s linear infinite;
+    }
+
+    .hero-der::after {
+      content: '';
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      border: 1px dashed rgba(61, 90, 69, 0.2);
+      animation: girar-lento 28s linear infinite reverse;
+    }
+
+    .hero-flor-grande {
+      font-size: 220px;
+      line-height: 1;
+      animation: flotar 6s ease-in-out infinite;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.1));
+    }
+
+    .hero-imagen {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Badges flotantes */
+    .badge {
+      position: absolute;
+      z-index: 3;
+      border-radius: 16px;
+      padding: 14px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+    }
+
+    .badge span {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    .badge-1 {
+      background: #fff;
+      border: 1px solid var(--borde);
+      top: 100px;
+      right: 60px;
+      animation: subirFade 0.8s ease 0.8s both;
+    }
+
+    .badge-1 span {
+      color: var(--gris);
+    }
+
+    .badge-2 {
+      background: var(--verde);
+      color: #fff;
+      bottom: 120px;
+      left: 50px;
+      animation: subirFade 0.8s ease 1s both;
+    }
+
+    .badge-2 span {
+      opacity: 0.7;
+    }
+
+    .badge-3 {
+      background: var(--rosa);
+      color: var(--negro);
+      bottom: 60px;
+      right: 80px;
+      animation: subirFade 0.8s ease 1.2s both;
+    }
+
+    .badge-3 span {
+      color: var(--tierra);
+    }
+
+    /* ================================================
+       TICKER
+    ================================================ */
+    .ticker {
+      background: var(--verde);
+      padding: 14px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-inner {
+      display: inline-flex;
+      gap: 50px;
+      animation: ticker 22s linear infinite;
+    }
+
+    .ticker-item {
+      font-size: 12px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.85);
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .ticker-item::after {
+      content: '✿';
+      color: var(--rosa);
+    }
+
+    /* ================================================
+       SECCIÓN GENERAL
+    ================================================ */
+    .seccion {
+      padding: 110px 70px;
+    }
+
+    .seccion-header {
+      text-align: center;
+      margin-bottom: 70px;
+      color: #444;
+    }
+
+    .seccion-tag {
+      display: inline-block;
+      font-size: 40px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #ffffff;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+
+    }
+
+    .seccion-h2 {
+      color: #1c1c1c;
+      text-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+      font: 700 clamp(2.4rem, 4vw, 3.8rem) var(--titulo);
+      letter-spacing: -1px;
+      line-height: 1.1;
+    }
+
+    .seccion-h2 em {
+      font-style: italic;
+      color: var(--rosa-osc);
+    }
+
+    .seccion-sub {
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-top: 14px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.8;
+    }
+
+    /* ================================================
+       CATEGORÍAS
+    ================================================ */
+    .categorias {
+      background: var(--crema-osc);
+      border-top: 1px solid var(--borde);
+    }
+
+    .cats-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+
+    .cat-card {
+      background: var(--crema);
+      border: 1px solid var(--borde);
+      border-radius: 20px;
+      padding: 36px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+
+    .cat-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+      background: #fff;
+    }
+
+    .cat-card:hover .cat-ico {
+      transform: scale(1.2) rotate(-5deg);
+    }
+
+    .cat-ico {
+      font-size: 48px;
+      display: block;
+      margin-bottom: 18px;
+      transition: transform 0.3s;
+    }
+
+    .cat-nombre {
+      font: 600 1.2rem var(--titulo);
+      margin-bottom: 8px;
+    }
+
+    .cat-cant {
+      font-size: 18px;
+      color: var(--gris);
+    }
+
+    /* ================================================
+       PRODUCTOS DESTACADOS
+    ================================================ */
+    .productos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .productos-grid .prod-card:nth-child(n+3) {
+      display: none;
+    }
+
+    .prod-card {
+      background: #fff;
+      border: 1px solid var(--borde);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform 0.35s, box-shadow 0.35s;
+      position: relative;
+    }
+
+    .prod-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.09);
+    }
+
+    /* Etiqueta de oferta */
+    .prod-oferta {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--verde);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 50px;
+      z-index: 2;
+    }
+
+    .prod-oferta.nuevo {
+      background: var(--rosa-osc);
+    }
+
+    /* Botón de favorito */
+    .prod-fav {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--borde);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 2;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .prod-fav:hover {
+      transform: scale(1.15);
+      background: var(--rosa);
+    }
+
+    .prod-imagen {
+      aspect-ratio: 1;
+      background: var(--crema-osc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 90px;
+      transition: transform 0.4s;
+    }
+
+    .prod-imagen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .prod-card:hover .prod-imagen {
+      transform: scale(1.04);
+    }
+
+    .prod-info {
+      padding: 20px;
+    }
+
+    .prod-categoria {
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--rosa-osc);
+      margin-bottom: 6px;
+    }
+
+    .prod-nombre {
+      font: 600 1.25rem var(--titulo);
+      margin-bottom: 4px;
+      letter-spacing: -0.3px;
+    }
+
+    .prod-desc {
+      font-size: 13px;
+      color: var(--gris);
+      margin-bottom: 14px;
+      line-height: 1.6;
+    }
+
+    .prod-pie {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .prod-precio {
+      font-family: var(--titulo);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--verde);
+    }
+
+    .prod-precio-tachado {
+      font-size: 12px;
+      color: var(--gris);
+      text-decoration: line-through;
+      margin-left: 4px;
+    }
+
+    .prod-agregar {
+      background: var(--negro);
+      color: #fff;
+      border: 0;
+      border-radius: 50px;
+      padding: 9px 18px;
+      font: 600 12px var(--cuerpo);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .prod-agregar:hover {
+      background: var(--verde);
+      transform: scale(1.05);
+    }
+
+    /* ================================================
+       BANNER ESPECIAL
+    ================================================ */
+    .banner {
+      background: var(--verde);
+      color: #fff;
+      padding: 90px 70px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner::before {
+      content: '🌸';
+      position: absolute;
+      right: -40px;
+      top: -40px;
+      font-size: 260px;
+      opacity: 0.1;
+      line-height: 1;
+    }
+
+    .banner-tag {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rosa);
+      margin-bottom: 18px;
+    }
+
+    .banner h2 {
+      font: 700 clamp(2.4rem, 4vw, 3.6rem) var(--titulo);
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .banner h2 em {
+      font-style: italic;
+      color: var(--rosa);
+    }
+
+    .banner-desc {
+      font-size: 15px;
+      line-height: 1.8;
+      opacity: 0.75;
+      margin-bottom: 36px;
+    }
+
+    .banner-lista {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .banner-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
+    .banner-item::before {
+      content: '✿';
+      color: var(--rosa);
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    /* Código de descuento */
+    .descuento-box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px dashed rgba(255, 255, 255, 0.25);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .desc-num {
+      font-family: var(--titulo);
+      font-size: 5rem;
+      font-weight: 700;
+      color: var(--rosa);
+      line-height: 1;
+    }
+
+    .desc-txt {
+      font-size: 14px;
+      opacity: 0.7;
+      margin: 10px 0 20px;
+    }
+
+    .desc-codigo {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px dashed var(--rosa);
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: var(--rosa);
+    }
+
+    /* ================================================
+       CÓMO FUNCIONA
+    ================================================ */
+    .pasos {
+      background: var(--crema-osc);
+      border-top: 1px solid var(--borde);
+    }
+
+    .pasos-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      position: relative;
+    }
+
+    /* Línea conectora */
+    .pasos-grid::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: 12%;
+      width: 76%;
+      height: 1px;
+      border-top: 1px dashed var(--borde);
+      z-index: 1;
+    }
+
+    .paso-card {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .paso-num {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--crema);
+      border: 2px solid var(--borde);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 28px;
+      transition: background 0.3s, border-color 0.3s, transform 0.3s;
+    }
+
+    .paso-card:hover .paso-num {
+      background: var(--verde);
+      border-color: var(--verde);
+      transform: scale(1.1);
+    }
+
+    .paso-titulo {
+      font: 600 1.2rem var(--titulo);
+      margin-bottom: 10px;
+    }
+
+    .paso-desc {
+      font-size: 13px;
+      color: var(--tierra);
+      line-height: 1.7;
+    }
+
+    /* ================================================
+       TESTIMONIOS
+    ================================================ */
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .test-card {
+      background: #fff;
+      border: 1px solid var(--borde);
+      border-radius: 20px;
+      padding: 36px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .test-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.07);
+    }
+
+    .test-estrellas {
+      color: #f5c842;
+      font: 14px var(--cuerpo);
+      margin-bottom: 18px;
+      letter-spacing: 2px;
+    }
+
+    .test-texto {
+      font-family: var(--titulo);
+      font-size: 1.1rem;
+      font-style: italic;
+      line-height: 1.7;
+      color: #444;
+      margin-bottom: 28px;
+    }
+
+    .test-autor {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .test-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--crema-osc);
+      border: 1px solid var(--borde);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .test-nombre {
+      font: 600 14px var(--cuerpo);
+    }
+
+    .test-cargo {
+      font-size: 12px;
+      color: var(--gris);
+      margin-top: 2px;
+    }
+
+    .test-flor {
+      margin-left: auto;
+      font-size: 22px;
+      opacity: 0.5;
+    }
+
+    /* ================================================
+       NOSOTROS / ABOUT US
+    ================================================ */
+    .nosotros {
+      background: #fff;
+      padding: 110px 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nosotros::before {
+      content: '🌿';
+      position: absolute;
+      top: -20px;
+      right: 80px;
+      font-size: 200px;
+      opacity: 0.08;
+    }
+
+    .nosotros-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+    }
+
+    .nosotros-contenido h2 {
+      font: 700 clamp(2.2rem, 3.5vw, 3.2rem) var(--titulo);
+      letter-spacing: -1px;
+      color: var(--negro);
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+
+    .nosotros-contenido h2 em {
+      font-style: italic;
+      color: var(--rosa-osc);
+    }
+
+    .nosotros-tag {
+      display: inline-block;
+      font: 11px var(--cuerpo);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rosa-osc);
+      margin-bottom: 14px;
+    }
+
+    .nosotros-texto {
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--tierra);
+      margin-bottom: 24px;
+    }
+
+    .nosotros-lista {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .nosotros-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .nosotros-item::before {
+      content: '✿';
+      color: var(--rosa-osc);
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .nosotros-item-texto {
+      font: 14px var(--cuerpo);
+      color: var(--negro);
+      line-height: 1.6;
+    }
+
+    .nosotros-icono {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .nosotros-flor {
+      font-size: 180px;
+      animation: flotar 6s ease-in-out infinite;
+      filter: drop-shadow(0 20px 40px rgba(207, 79, 113, 0.15));
+    }
+
+    /* ================================================
+       INSTAGRAM / GALERÍA
+    ================================================ */
+    .galeria {
+      background: var(--crema-osc);
+      border-top: 1px solid var(--borde);
+    }
+
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .galeria-item {
+      aspect-ratio: 1;
+      background: var(--crema);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      border: 1px solid var(--borde);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .galeria-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
+    }
+
+    .galeria-item::after {
+      content: '♡ Ver';
+      position: absolute;
+      inset: 0;
+      background: rgba(61, 90, 69, 0.75);
+      color: #fff;
+      font-family: var(--cuerpo);
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+      border-radius: 16px;
+      pointer-events: none;
+    }
+
+    .galeria-item:hover::after {
+      opacity: 1;
+    }
+
+    /* ================================================
+       SUSCRIPCIÓN / NEWSLETTER
+    ================================================ */
+    .newsletter {
+      background: var(--rosa);
+      border-top: 1px solid rgba(212, 132, 154, 0.3);
+      padding: 80px 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .news-izq h2 {
+      font-family: var(--titulo);
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .news-izq p {
+      font-size: 14px;
+      color: var(--tierra);
+    }
+
+    .news-form {
+      display: flex;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .news-form input {
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(212, 132, 154, 0.4);
+      border-radius: 50px;
+      padding: 14px 22px;
+      font: 14px var(--cuerpo);
+      outline: 0;
+      width: 280px;
+      color: var(--negro);
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .news-form input:focus {
+      background: #fff;
+      border-color: var(--verde);
+    }
+
+    .news-form input::placeholder {
+      color: var(--tierra);
+    }
+
+    /* ================================================
+       CONTACTO
+    ================================================ */
+    .contacto {
+      background: var(--negro);
+      color: #fff;
+      padding: 110px 70px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contacto::before {
+      content: '🌷';
+      position: absolute;
+      bottom: -40px;
+      right: 40px;
+      font-size: 280px;
+      opacity: 0.05;
+      line-height: 1;
+    }
+
+    .contacto-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      position: relative;
+    }
+
+    .contacto-tag {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rosa);
+      margin-bottom: 18px;
+    }
+
+    .contacto-h2 {
+      font: 700 clamp(2.2rem, 3.5vw, 3.4rem) var(--titulo);
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .contacto-h2 em {
+      font-style: italic;
+      color: var(--rosa);
+    }
+
+    .contacto-desc {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 44px;
+    }
+
+    .contacto-datos {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .dato-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .dato-ico {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    /* Formulario */
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-fila {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-grupo {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-grupo label {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .form-grupo input,
+    .form-grupo textarea,
+    .form-grupo select {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 14px 18px;
+      color: #fff;
+      font: 14px var(--cuerpo);
+      outline: 0;
+      transition: border-color 0.25s, background 0.25s;
+      min-height: 44px;
+    }
+
+    .form-grupo input::placeholder,
+    .form-grupo textarea::placeholder {
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    .form-grupo input:focus,
+    .form-grupo textarea:focus,
+    .form-grupo select:focus {
+      border-color: var(--rosa-osc);
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .form-grupo textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-grupo select option {
+      background: #1c1c1c;
+    }
+
+    .btn-enviar {
+      background: var(--rosa-osc);
+      color: #fff;
+      border: 0;
+      border-radius: 50px;
+      padding: 16px 34px;
+      font: 600 14px var(--cuerpo);
+      cursor: pointer;
+      align-self: flex-start;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-enviar:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(212, 132, 154, 0.4);
+    }
+
+    /* ================================================
+       FOOTER
+    ================================================ */
+    footer {
+      background: #111;
+      color: rgba(255, 255, 255, 0.5);
+      padding: 60px 70px 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 50px;
+      padding-bottom: 50px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 30px;
+    }
+
+    .footer-logo {
+      font: 700 2rem var(--titulo);
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .footer-logo em {
+      font-style: italic;
+      color: var(--rosa);
+    }
+
+    .footer-sobre {
+      font-size: 13px;
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .footer-redes {
+      display: flex;
+      gap: 12px;
+    }
+
+    .red-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .red-btn:hover {
+      background: var(--rosa-osc);
+      border-color: var(--rosa-osc);
+    }
+
+    .footer-col h4 {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul a {
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--rosa);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    .footer-bottom strong {
+      color: var(--rosa);
+    }
+
+    /* ================================================
+       RESPONSIVE
+    ================================================ */
+    @media (max-width: 1024px) {
+      nav {
+        padding: 14px 40px;
+      }
+
+      .productos-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+
+      .cats-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .galeria-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+
+      .seccion {
+        padding: 80px 50px;
+      }
+
+      .banner {
+        padding: 70px 50px;
+      }
+
+      .contacto {
+        padding: 80px 50px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 12px 16px;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-logo {
+        font-size: 1.2rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 40px 20px 60px 20px;
+        min-height: 80vh;
+      }
+
+      .hero-izq {
+        padding: 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+        margin-bottom: 16px;
+      }
+
+      .hero-tag {
+        font-size: 10px;
+        padding: 6px 12px;
+        margin-bottom: 20px;
+      }
+
+      .hero-desc {
+        font-size: 0.9rem;
+        margin-bottom: 24px;
+      }
+
+      .hero-botones {
+        gap: 10px;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        font-size: 13px;
+      }
+
+      .hero-der {
+        min-height: 280px;
+        max-width: 100%;
+      }
+
+      .hero-flor-grande {
+        font-size: 100px;
+      }
+
+      .badge {
+        display: none;
+      }
+
+      .seccion {
+        padding: 50px 20px;
+      }
+
+      .seccion-header {
+        margin-bottom: 40px;
+      }
+
+      .seccion-h2 {
+        font-size: clamp(1.8rem, 3vw, 2.5rem);
+      }
+
+      .seccion-sub {
+        font-size: 14px;
+        margin-top: 10px;
+      }
+
+      .cats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .cat-card {
+        padding: 20px 12px;
+      }
+
+      .cat-ico {
+        font-size: 36px;
+        margin-bottom: 12px;
+      }
+
+      .cat-nombre {
+        font-size: 1rem;
+      }
+
+      .cat-cant {
+        font-size: 13px;
+      }
+
+      .prod-card {
+        border-radius: 12px;
+      }
+
+      .prod-info {
+        padding: 16px;
+      }
+
+      .prod-nombre {
+        font-size: 1rem;
+      }
+
+      .prod-desc {
+        font-size: 12px;
+      }
+
+      .prod-agregar {
+        padding: 8px 14px;
+        font-size: 11px;
+      }
+
+      .banner {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+        gap: 30px;
+      }
+
+      .banner h2 {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+      }
+
+      .banner-desc {
+        font-size: 13px;
+      }
+
+      .pasos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .pasos-grid::before {
+        display: none;
+      }
+
+      .paso-num {
+        width: 56px;
+        height: 56px;
+        font-size: 24px;
+        margin-bottom: 16px;
+      }
+
+      .paso-titulo {
+        font-size: 1rem;
+      }
+
+      .paso-desc {
+        font-size: 12px;
+      }
+
+      .test-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .test-card {
+        padding: 24px;
+      }
+
+      .test-texto {
+        font-size: 1rem;
+      }
+
+      .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+
+      .nosotros {
+        padding: 50px 20px;
+      }
+
+      .nosotros-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .nosotros-contenido h2 {
+        font-size: clamp(1.6rem, 3vw, 2rem);
+      }
+
+      .nosotros-texto {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .nosotros-flor {
+        font-size: 100px;
+      }
+
+      .nosotros-lista {
+        gap: 12px;
+      }
+
+      .newsletter {
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .news-izq h2 {
+        font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      }
+
+      .news-izq p {
+        font-size: 13px;
+      }
+
+      .news-form {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .news-form input {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 14px;
+      }
+
+      .contacto {
+        padding: 50px 20px;
+      }
+
+      .contacto-h2 {
+        font-size: clamp(1.6rem, 3vw, 2rem);
+      }
+
+      .contacto-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .contacto-desc {
+        font-size: 13px;
+      }
+
+      .dato-item {
+        font-size: 13px;
+      }
+
+      .dato-ico {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+      }
+
+      .form-grupo label {
+        font-size: 10px;
+      }
+
+      .form-grupo input,
+      .form-grupo textarea {
+        padding: 12px 14px;
+        font-size: 14px;
+      }
+
+      .btn-enviar {
+        padding: 12px 24px;
+        font-size: 12px;
+      }
+
+      footer {
+        padding: 40px 20px 20px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding-bottom: 24px;
+      }
+
+      .footer-logo {
+        font-size: 1.4rem;
+      }
+
+      .footer-sobre {
+        font-size: 12px;
+      }
+
+      .footer-col h4 {
+        font-size: 11px;
+        margin-bottom: 12px;
+      }
+
+      .footer-col ul {
+        gap: 8px;
+      }
+
+      .footer-col ul a {
+        font-size: 12px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        font-size: 11px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 10px 14px;
+      }
+
+      .hero {
+        padding: 30px 16px 45px;
+        min-height: 75vh;
+      }
+
+      .hero-botones {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .seccion {
+        padding: 40px 16px;
+      }
+
+      .cats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .prod-agregar {
+        min-height: 40px;
+      }
+
+      .test-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .test-card {
+        padding: 20px;
+      }
+
+      .galeria-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter {
+        padding: 30px 16px;
+      }
+
+      .contacto {
+        padding: 40px 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .anuncio {
+        padding: 8px 12px;
+        font-size: 10px;
+        letter-spacing: 1px;
+      }
+
+      nav {
+        padding: 10px 12px;
+      }
+
+      .nav-logo {
+        font-size: 1rem;
+      }
+
+      .hero {
+        padding: 30px 16px 50px 16px;
+        min-height: 70vh;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+        line-height: 1.1;
+        margin-bottom: 12px;
+      }
+
+      .hero-tag {
+        font-size: 9px;
+        padding: 5px 10px;
+        margin-bottom: 16px;
+      }
+
+      .hero-desc {
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+        max-width: 100%;
+      }
+
+      .btn {
+        padding: 10px 18px;
+        font-size: 12px;
+      }
+
+      .hero-botones {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .hero-der {
+        min-height: 220px;
+      }
+
+      .hero-flor-grande {
+        font-size: 80px;
+      }
+
+      .seccion {
+        padding: 40px 16px;
+      }
+
+      .seccion-header {
+        margin-bottom: 30px;
+      }
+
+      .seccion-h2 {
+        font-size: clamp(1.4rem, 2.5vw, 2rem);
+      }
+
+      .seccion-tag {
+        font-size: 12px;
+        margin-bottom: 12px;
+      }
+
+      .cats-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .cat-card {
+        padding: 16px 12px;
+      }
+
+      .prod-imagen {
+        aspect-ratio: 1;
+        font-size: 60px;
+      }
+
+      .prod-oferta {
+        font-size: 9px;
+        padding: 4px 8px;
+        top: 12px;
+        left: 12px;
+      }
+
+      .prod-fav {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+        top: 10px;
+        right: 10px;
+      }
+
+      .banner {
+        padding: 30px 16px;
+        gap: 20px;
+      }
+
+      .banner h2 {
+        font-size: clamp(1.4rem, 2.5vw, 2rem);
+      }
+
+      .banner-tag {
+        font-size: 10px;
+      }
+
+      .banner-desc {
+        font-size: 12px;
+        margin-bottom: 20px;
+      }
+
+      .banner-item {
+        font-size: 12px;
+      }
+
+      .pasos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .paso-num {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+        margin-bottom: 12px;
+      }
+
+      .paso-titulo {
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+      }
+
+      .paso-desc {
+        font-size: 11px;
+      }
+
+      .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+      }
+
+      .galeria-item {
+        font-size: 40px;
+        border-radius: 8px;
+      }
+
+      .nosotros {
+        padding: 40px 16px;
+      }
+
+      .nosotros-contenido h2 {
+        font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      }
+
+      .nosotros-tag {
+        font-size: 10px;
+      }
+
+      .nosotros-texto {
+        font-size: 13px;
+      }
+
+      .nosotros-flor {
+        font-size: 80px;
+      }
+
+      .newsletter {
+        padding: 30px 16px;
+        gap: 16px;
+      }
+
+      .news-izq h2 {
+        font-size: clamp(1.2rem, 2vw, 1.6rem);
+      }
+
+      .news-izq p {
+        font-size: 12px;
+      }
+
+      .news-form input {
+        padding: 10px 12px;
+        width: 100%;
+        font-size: 13px;
+      }
+
+      .contacto {
+        padding: 40px 16px;
+      }
+
+      .contacto-tag {
+        font-size: 10px;
+      }
+
+      .contacto-h2 {
+        font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      }
+
+      .contacto-desc {
+        font-size: 12px;
+      }
+
+      .dato-item {
+        font-size: 12px;
+        gap: 12px;
+      }
+
+      .dato-ico {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+      }
+
+      .form-grupo label {
+        font-size: 9px;
+      }
+
+      .form-grupo input,
+      .form-grupo textarea {
+        padding: 10px 12px;
+        font-size: 13px;
+        border-radius: 8px;
+      }
+
+      .btn-enviar {
+        padding: 10px 18px;
+        font-size: 11px;
+      }
+
+      footer {
+        padding: 30px 16px 16px;
+      }
+
+      .footer-top {
+        gap: 20px;
+        padding-bottom: 20px;
+      }
+
+      .footer-logo {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+      }
+
+      .footer-sobre {
+        font-size: 11px;
+        margin-bottom: 12px;
+      }
+
+      .footer-redes {
+        gap: 10px;
+      }
+
+      .red-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+      }
+
+      .footer-col h4 {
+        font-size: 10px;
+        margin-bottom: 10px;
+      }
+
+      .footer-col ul {
+        gap: 6px;
+      }
+
+      .footer-col ul a {
+        font-size: 11px;
+      }
+
+      .footer-bottom {
+        font-size: 10px;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <!-- ANUNCIO -->
+    <div class="anuncio">
+      🌸 Diversos ramos para diversos gustos
+      <span>✦</span>
+      Pedidos especiales disponibles
+    </div>
+
+    <!-- NAV -->
+    <nav>
+      <div class="nav-logo">🌷🌷 <em>ROSE GARDEN 🌷🌷</em></div>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+
+      <div class="hero-izq">
+        <div class="hero-tag">🌿 Flores Diversas · Entrega a domicilio </div>
+        <h1> 
+          Flores que<br>
+          <em>Enamoran</em><br>
+          el corazón
+        </h1>
+        <p style="color: #ffffff; font-size: 22px;text-shadow: #111;">
+          Arreglos florales de trabajo manual, únicos para cada momento especial. Hechos con dedicación,
+           y entregados directo a tu puerta.
+        </p>
+        <div>
+          <br>
+          <a href="#productos" class="btn btn-verde">Ver catálogo 🌸</a>
+          <a href="#contacto" class="btn btn-verde">Pedido especial</a>
+        </div>
+      </div>
+
+
+    </section>
+    <!-- NOSOTROS -->
+    <section class="nosotros" id="nosotros">
+      <div class="nosotros-inner">
+        <div class="nosotros-contenido">
+          <p class="nosotros-tag">✿ Nuestra Historia</p>
+          <h2>Flores que llevan <em>historias</em></h2>
+          <p class="nosotros-texto">
+            En ROSE GARDEN, creemos que cada flor cuenta una historia. Desde nuestros inicios, nos hemos dedicado a
+            crear arreglos florales que no solo hermosean espacios, sino que también tocan el corazón.
+          </p>
+          <p class="nosotros-texto">
+            Cada ramo que preparamos es hecho con cuidado artesanal, utilizando materiales de alta calidad.Trabajamos
+            día a día para garantizar que cada arreglo sea una obra de arte.
+          </p>
+          <div class="nosotros-lista">
+            <div class="nosotros-item">
+              <span class="nosotros-item-texto"><strong>Diseño artesanal</strong> personalizado para cada ocasión
+                especial</span>
+            </div>
+            <div class="nosotros-item">
+              <span class="nosotros-item-texto"><strong>Entrega rápida</strong> </span>
+            </div>
+            <div class="nosotros-item">
+              <span class="nosotros-item-texto"><strong>Atención premium</strong> en cada detalle</span>
+            </div>
+          </div>
+          <a href="#contacto" class="btn btn-verde">Contáctanos 🌸</a>
+        </div>
+        <div class="nosotros-icono">
+          <div class="nosotros-flor"><img src="IMG/05dc4048181350e14f1ae61b70ad9187.jpg" width="500" height="400" alt=""></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TICKER -->
+    <div class="ticker">
+      <div class="ticker-inner">
+        <span class="ticker-item">Rosas</span>
+        <span class="ticker-item">Tulipanes</span>
+        <span class="ticker-item">Girasoles</span>
+        <span class="ticker-item">Orquídeas</span>
+        <span class="ticker-item">Lirios</span>
+        <span class="ticker-item">Arreglos Especiales</span>
+        <span class="ticker-item">Ramos de Novia</span>
+        <span class="ticker-item">Rosas</span>
+        <span class="ticker-item">Tulipanes</span>
+        <span class="ticker-item">Girasoles</span>
+        <span class="ticker-item">Orquídeas</span>
+        <span class="ticker-item">Lirios</span>
+        <span class="ticker-item">Arreglos Especiales</span>
+        <span class="ticker-item">Ramos de Novia</span>
+      </div>
+    </div>
+
+    <!-- CATEGORÍAS -->
+    <section class="seccion categorias">
+      <div class="seccion-header">
+        <h2 class="seccion-h2">NUESTRAS CATEGORÍAS</h2>
+      </div>
+      <div class="cats-grid">
+        <div class="cat-card animate">
+          <span class="cat-ico"> <img src="IMG/8829c92c-d3aa-4553-96a3-3d377dca4bd6.jpg" alt="Rosas" width="200" height="300"> </span>
+          <h3 class="cat-nombre">Rosas 🌹</h3>
+          <p class="cat-cant">Cantidad a Elección</p>
+        </div>
+        <div class="cat-card animate">
+          <span class="cat-ico"><img src="IMG/eac5c1f3-4553-4df4-85b5-e71c81c96d14.jpg" alt="Tulipanes" width="200" height="300"></span>
+          <h3 class="cat-nombre">Tulipanes 🌷</h3>
+          <p class="cat-cant">Cantidad a Elección</p>
+        </div>
+        <div class="cat-card animate">
+          <span class="cat-ico"><img src="IMG/219cec8e-63fe-48c2-a69e-d4a4100101d7.jpg" alt="Girasoles" width="200" height="300"></span>
+          <h3 class="cat-nombre">Girasoles 🌻</h3>
+          <p class="cat-cant">Cantidad a Elección</p>
+        </div>
+        <div class="cat-card animate">
+          <span class="cat-ico"><img src="IMG/6cc05181-0b24-445b-b517-aa893a523b1a.jpg" alt="Arreglos" width="200" height="300"></span>
+          <h3 class="cat-nombre">Arreglos 🌸</h3>
+          <p class="cat-cant">Cantidad a Elección</p>
+        </div>
+        <div class="cat-card animate">
+          <span class="cat-ico"><img src="IMG/7db47c2c-91e1-41e3-914a-5c5334d8fd97.jpg" alt="Otros" width="200" height="300"></span>
+          <h3 class="cat-nombre"> Otros 💐</h3>
+          <p class="cat-cant">Cantidad a Elección</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTOS DESTACADOS -->
+    <section class="seccion" id="productos"> 
+      <div class="seccion-header" color="#111">
+        <p class="seccion-tag">✿ Lo más vendido</p>
+        <h2 class="seccion-h2">Arreglos <em>destacados</em></h2>
+        <p class="seccion-sub">Escogidos por nuestros clientes más felices</p>
+      </div>
+      <div class="productos-grid">
+
+        <div class="prod-card">
+          <span class="prod-oferta">Más vendido</span>
+          <div class="prod-fav">♡</div>
+          <div class="prod-imagen"><img src="IMG/9f2a2a90-8a35-4ecc-88a7-c0e7e3fbf1ed.jpg" alt="Ramo de rosas" width="300" height="350"></div>
+          <div class="prod-info">
+            <div class="prod-categoria">Rosas</div>
+            <p class="prod-desc">Mix de rosas en colores diversos</p>
+
+            <div class="prod-pie">
+              <div>
+                <span class="prod-precio"></span>
+              </div>
+              <button class="prod-agregar"> 120.000 G.</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="prod-card">
+          <span class="prod-oferta nuevo">Nuevo</span>
+          <div class="prod-fav">♡</div>
+          <div class="prod-imagen"><img src="IMG/7266f456-7d61-4e43-89f8-5bf41e826fc9.jpg" alt="Ramo Primaveral" width="300" height="350"></div>
+          <div class="prod-info">
+            <div class="prod-categoria">Arreglos</div>
+            <h3 class="prod-nombre">Ramo Primaveral</h3>
+            <p class="prod-desc">Mix de flores en caja de regalo</p>
+            <div class="prod-pie">
+              <div>
+                <span class="prod-precio"></span>
+                <span class="prod-precio-tachado"></span>
+              </div>
+              <button class="prod-agregar">70.000 G.</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align:center; margin-top:48px;">
+        <a href="IMG/Catalogo de productos_compressed.pdf" target="_blank" class="btn btn-borde">Ver todo el catálogo →</a>
+      </div>
+    </section>
+
+    <!-- BANNER OFERTA -->
+    <div class="banner">
+      <div>
+        <p class="banner-tag">✿ Oferta especial</p>
+        <h2>Regala <em>amor</em><br>este mes</h2>
+        <p class="banner-desc">
+          Celebra cumpleaños, aniversarios o simplemente sorprende a alguien
+          especial con un arreglo diseñado solo para ellos.
+        </p>
+
+        <div class="banner-lista">
+          <div class="banner-item">Mensaje personalizado incluido</div>
+          <div class="banner-item">Entrega a domicilio en la ciudad</div>
+          <div class="banner-item">Empaque especial de regalo</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CÓMO FUNCIONA -->
+    <section class="seccion pasos">
+      <div class="seccion-header">
+        <p class="seccion-tag" style="color: #1c1c1c;">✿ Simple y rápido</p>
+        <h2 class="seccion-h2">¿Cómo <em>funciona</em>?</h2>
+        <p class="seccion-sub" style="color: #1c1c1c;">Recibe flores en 4 sencillos pasos</p>
+      </div>
+      <div class="pasos-grid">
+        <div class="paso-card">
+          <div class="paso-num">🌸</div>
+          <h3 class="paso-titulo">Elige tu arreglo</h3>
+          <p class="paso-desc">Explora nuestro catálogo y selecciona el arreglo perfecto para la ocasión</p>
+        </div>
+        <div class="paso-card">
+          <div class="paso-num">✍️</div>
+          <h3 class="paso-titulo">Personaliza</h3>
+          <p class="paso-desc">Agrega tu mensaje especial y elige el tipo de empaque que prefieras</p>
+        </div>
+        <div class="paso-card">
+          <div class="paso-num">💳</div>
+          <h3 class="paso-titulo">Paga seguro</h3>
+          <p class="paso-desc">Métodos de pago seguros: tarjeta, transferencia o efectivo contra entrega</p>
+        </div>
+        <div class="paso-card">
+          <div class="paso-num">🚚</div>
+          <h3 class="paso-titulo">Recibe en casa</h3>
+          <p class="paso-desc">Entregamos el mismo día para pedidos antes de las 2pm en toda la ciudad</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERÍA INSTAGRAM -->
+    <section class="seccion galeria">
+      <div class="seccion-header">
+        <p class="seccion-tag" style="color: #1c1c1c;">✿ @rose.garden</p>
+        <h2 class="seccion-h2">Síguenos en <em> Las Redes</em></h2>
+      </div>
+      <div class="galeria-grid">
+        <div class="galeria-item">🌹</div>
+        <div class="galeria-item"> <a href="https://www.instagram.com/rosegarden.py" target="_blank"><img src="IMG/fondo-instagram-colores-degradados_23-2147823814.jpg" width="200" height="200" alt="Instagram"></a> </div>
+        <div class="galeria-item"><a href="https://www.facebook.com/cornelia.britiz.73" target="_blank"><img src="IMG/facebook-icon-logo-png-transparent.png" width="200" height="200" alt="Facebook"></a></div>
+        <div class="galeria-item"><a href="https://www.tiktok.com/@rosegarden.py" target="_blank"><img src="IMG/5545a2a9ce938ec70e0941cdd7a82105.jpg" width="200" height="200" alt="Twitter"></a></div>
+        <div class="galeria-item">🌹</div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contacto" id="contacto">
+      <div class="contacto-inner">
+        <div>
+          <p class="contacto-tag">✿ Contáctanos</p>
+          <h2 class="contacto-h2">Haz tu pedido <em>especial</em></h2>
+          <p class="contacto-desc">
+            ¿Tienes un evento especial? ¿Quieres un arreglo único y personalizado?
+            Escríbenos y te ayudamos a crear algo memorable.
+          </p>
+          <div class="contacto-datos">
+            <div class="dato-item">
+              <div class="dato-ico">📍</div> Calle 6, Km 7 Acaray, Ciudad del Este
+            </div>
+            <div class="dato-item">
+              <div class="dato-ico">📞</div> (0973) 160 549
+            </div>
+            <div class="dato-item">
+              <div class="dato-ico">🕐</div> Lun–Sáb: 8am – 8pm ·
+            </div>
+          </div>
+        </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">🌷 <em>ROSE GARDEN</em></div>
+        <p class="footer-sobre">
+          Somos una floristería artesanal llevamos amor,
+          belleza y alegría a cada hogar. Flores eternas, con cariño en cada pétalo.
+        </p>
+        <div class="footer-redes">
+          <a href="#" class="red-btn" aria-label="Instagram">📷</a>
+          <a href="#" class="red-btn" aria-label="Facebook">📘</a>
+          <a href="#" class="red-btn" aria-label="Twitter">🐦</a>
+          <a href="#" class="red-btn" aria-label="YouTube">▶️</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Tienda</h4>
+        <ul>
+          <li><a href="#">Rosas</a></li>
+          <li><a href="#">Tulipanes</a></li>
+          <li><a href="#">Girasoles</a></li>
+          <li><a href="#">Arreglos</a></li>
+          <li><a href="#">Plantas</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#">Entrega a domicilio</a></li>
+          <li><a href="#">Pedidos especiales</a></li>
+          <li><a href="#">Bodas y eventos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 <strong>ROSE GARDEN</strong> · Todos los derechos reservados</p>
+      <p>Hecho con ❤️ y 🌸 usando HTML & CSS</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

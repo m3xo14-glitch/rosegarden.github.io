@@ -1,0 +1,46 @@
+/* ROSE GARDEN - ESTILOS CONSOLIDADOS */
+
+/* Nota: Todos los estilos principales están en el HTML
+   para mantener organización y evitar conflictos. */
+
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: prefer-reduced-motion) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    pointer-events: auto !important;
+  }
+}
+@media (max-width: 768px) {
+  .productos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+/* Enfoque mejorado para navegación */
+:focus-visible {
+  outline: 2px solid var(--rosa-osc);
+  outline-offset: 2px;
+}
+
+/* Estilos de impresión */
+@media print {
+  nav, .anuncio, .ticker, .newsletter, footer {
+    display: none;
+  }
+  body {
+    background: rgb(243, 194, 194);
+    color: #000;
+  }
+}
+.seccion {
+  background: linear-gradient( rgba(0,0,0,0,55), rgba(0,0,0,0.55,),url('IMG/28d7d23e74d8113bc0f9632241e94e80.png') );
+} 
+  

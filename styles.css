@@ -23,6 +23,25 @@
   .hero {
     grid-template-columns: 1fr;
   }
+  /* Optimización de fondo para tablets */
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 480px) {
+  .productos-grid {
+    grid-template-columns: 1fr;
+  }
+  .cats-grid {
+    grid-template-columns: 1fr;
+  }
+  /* Optimización de fondo para móviles pequeños */
+  body {
+    background-attachment: scroll;
+    background-size: auto;
+  }
 }
 /* Enfoque mejorado para navegación */
 :focus-visible {
